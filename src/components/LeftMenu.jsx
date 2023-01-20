@@ -8,7 +8,7 @@ import { HiDotsVertical } from "react-icons/hi";
 import { BiFilter } from "react-icons/bi";
 import { pp } from "../assets/whatsapp";
 
-function LeftMenu() {
+function LeftMenu({activechat, setactivechat}) {
   const [filter, setFilter] = useState(false);
 
   return (
@@ -51,7 +51,7 @@ function LeftMenu() {
       </div>
 
       {/* Chats */}
-      <Chats filter={filter} />
+      <Chats filter={filter} activechat={activechat} setactivechat={setactivechat}  />
     </div>
   );
 }

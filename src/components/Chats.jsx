@@ -3,7 +3,7 @@ import Chat from "./Chat";
 import { chatsData } from "../data/whatsapp";
 import { ImFolderDownload } from "react-icons/im";
 
-function Chats({ filter }) {
+function Chats({ filter, activechat, setactivechat }) {
   const [chats, setChats] = useState(chatsData);
 
   useEffect(() => {
@@ -37,12 +37,15 @@ function Chats({ filter }) {
       {chats.map((chat, i) => {
         return (
           <Chat
+            key={i}
+            id={i}
+            setactivechat={setactivechat}
             pp={chat.pp}
             contact={chat.contact}
             msg={chat.msg}
             time={chat.time}
             unreadMsgs={chat.unreadMsgs}
-            active={i === 0}
+            active={i === activechat}
           />
         );
       })}

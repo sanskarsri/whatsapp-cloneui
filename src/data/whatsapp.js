@@ -174,6 +174,7 @@ export const chatsData = [
 ];
 
 export const messagesData = [
+  [
   {
     msg: "Hey wassupp bro!",
     time: "10:58 am",
@@ -251,4 +252,64 @@ export const messagesData = [
     time: "1:15 pm",
     sent: false,
   },
+  ],
+  [
+  {
+    msg: "Hey wassupp bro!",
+    time: "10:58 am",
+    sent: true,
+  },
+  {
+    msg: "This WhatsApp clone is firee 🔥",
+    time: "10:58 am",
+    sent: true,
+  },
+  {
+    msg: "Keep it up! 👍👍👍",
+    time: "10:59 am",
+    sent: true,
+  },
+  {
+    msg: "Thanks a lot! 😀",
+    time: "11:15 am",
+    sent: false,
+  },
+  {
+    msg: "Make sure to follow all my socials! 👌👌",
+    time: "11:15 am",
+    sent: false,
+  },
+  {
+    msg: "I will! what's your Github?",
+    time: "11:28 am",
+    sent: true,
+  },
+  {
+    msg: "AlejoG10",
+    time: "11:36 am",
+    sent: false,
+  },
+  {
+    msg: "https://github.com/AlejoG10",
+    isLink: true,
+    time: "11:36 am",
+    sent: false,
+  },
+  {
+    msg: "And your YouTube channel?",
+    time: "11:47 am",
+    sent: true,
+  },
+  {
+    msg: "Coding Spot",
+    time: "11:55 am",
+    sent: false,
+  },
+  {
+    msg: "https://www.youtube.com/channel/UCLqXQLK6zKZg0trhanjAkkQ",
+    isLink: true,
+    time: "11:55 am",
+    sent: false,
+  },
+  ],
 ];

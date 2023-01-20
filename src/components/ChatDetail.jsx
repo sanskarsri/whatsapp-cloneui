@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Message from "./Message";
 import RoundedBtn from "./Common/RoundedBtn";
-import { messagesData } from "../data/whatsapp";
+import { chatsData, messagesData } from "../data/whatsapp";
 import { MdSearch, MdSend } from "react-icons/md";
 import { HiDotsVertical } from "react-icons/hi";
 import { BiHappy } from "react-icons/bi";
@@ -10,8 +10,8 @@ import { BsFillMicFill } from "react-icons/bs";
 import { cs1, cs2 } from "../assets/whatsapp";
 import { getTime } from "../logic/whatsapp";
 
-function ChatDetail() {
-  const [messages, setMessages] = useState(messagesData);
+function ChatDetail({activechat}) {
+  const [messages, setMessages] = useState(messagesData[activechat]);
   const [typing, setTyping] = useState(false);
 
   const inputRef = useRef(null);
@@ -61,6 +61,11 @@ function ChatDetail() {
   }, [messages]);
 
   useEffect(() => {
+    chatsData[activechat].unreadMsgs= null;
+    setMessages(messagesData[activechat]);
+  }, [activechat]);
+
+  useEffect(() => {
     const listener = (e) => {
       if (e.code === "Enter") handleInputSubmit();
     };
@@ -105,8 +110,9 @@ function ChatDetail() {
         className="bg-[#0a131a] bg-[url('assets/images/bg.webp')] bg-contain overflow-y-scroll h-100"
         style={{ padding: "12px 7%" }}
       >
-        {messages.map((msg) => (
+        {messages.map((msg,i) => (
           <Message
+            key={i}
             msg={msg.msg}
             time={msg.time}
             isLink={msg.isLink}
