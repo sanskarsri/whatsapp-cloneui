@@ -7,11 +7,13 @@ import { HiDotsVertical } from "react-icons/hi";
 import { BiHappy } from "react-icons/bi";
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { BsFillMicFill } from "react-icons/bs";
-import { cs1, cs2 } from "../assets/whatsapp";
+import { cs1, cs2, chat1, chat2, chat3, chat4, chat5, chat6, chat7, chat8, chat9, chat10, chat11, chat12, chat13 } from "../assets/whatsapp";
 import { getTime } from "../logic/whatsapp";
 
 function ChatDetail({activechat}) {
   const [messages, setMessages] = useState(messagesData[activechat]);
+  const [name, setname] = useState(chatsData[activechat].contact);
+  const [profile, setprofile] = useState(chatsData[activechat].pp);
   const [typing, setTyping] = useState(false);
 
   const inputRef = useRef(null);
@@ -25,7 +27,7 @@ function ChatDetail({activechat}) {
   };
 
   const handleEmojiClick = () => {
-    inputRef.current.value += "🔥";
+    inputRef.current.value += "😂";
     inputRef.current.focus();
   };
 
@@ -63,6 +65,8 @@ function ChatDetail({activechat}) {
   useEffect(() => {
     chatsData[activechat].unreadMsgs= null;
     setMessages(messagesData[activechat]);
+    setname(chatsData[activechat].contact);
+    setprofile(chatsData[activechat].pp)
   }, [activechat]);
 
   useEffect(() => {
@@ -83,7 +87,7 @@ function ChatDetail({activechat}) {
         <div className="flex items-center">
           {/* Profile picture */}
           <img
-            src={cs1}
+            src={profile}
             alt="profile_picture"
             className="rounded-full w-[45px] h-[45px] mr-5"
           />
@@ -91,7 +95,7 @@ function ChatDetail({activechat}) {
           {/* Info */}
           <div className="flex flex-col">
             {/* Contact */}
-            <h1 className="text-white font-medium">Coding Spot</h1>
+            <h1 className="text-white font-medium">{name}</h1>
 
             {/* Status */}
             <p className="text-[#8796a1] text-xs">online</p>
